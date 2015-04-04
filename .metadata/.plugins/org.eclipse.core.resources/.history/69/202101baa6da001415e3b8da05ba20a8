@@ -1,0 +1,20 @@
+package me.timer.bukkit;
+
+import java.util.logging.Logger;
+
+import org.bukkit.plugin.java.JavaPlugin;
+
+public final class MainClass extends JavaPlugin {
+
+	public final Logger log = Logger.getLogger("Minecraft");
+	
+	@Override
+	public void onEnable(){
+		
+	}
+	public void onDisable(){
+		
+	}
+	
+	
+}

@@ -1,0 +1,5 @@
+package me.timer.bukkit;
+
+public class StartTimer {
+
+}

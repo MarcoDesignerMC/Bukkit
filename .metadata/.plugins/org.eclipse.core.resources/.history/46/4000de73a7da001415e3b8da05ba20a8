@@ -1,0 +1,6 @@
+name: Timer UHC
+version: 0.1
+main: me.timer.bukkit.MainClass
+commands:
+	timer:
+		description: It counts down

@@ -1,0 +1,38 @@
+package me.timer.bukkit;
+
+import java.util.logging.Logger;
+
+import me.timer.bukkit.Runnables.Start;
+
+import org.bukkit.plugin.PluginDescriptionFile;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public final class MainClass extends JavaPlugin {
+
+	Start start;
+	
+	public final Logger log = Logger.getLogger("Minecraft");
+	PluginDescriptionFile pdfFile = this.getDescription();
+
+	@Override
+	public void onEnable() {
+		this.getCommand("timer").setExecutor(new StartTimer());
+		log.info("UHCTimer has been enabled");
+		start = new Start(this);
+		
+		start.runTaskTimer(this, 0, 20L);
+	}
+
+	@Override
+	public void onDisable() {
+		getServer().getScheduler().cancelAllTasks();
+		log.info("UHCTimer has been disabled");
+	}
+
+	
+	public void runTask(){
+
+		
+		
+	}
+}

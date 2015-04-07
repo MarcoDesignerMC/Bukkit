@@ -1,0 +1,23 @@
+package me.timer.bukkit.Runnables;
+
+import me.timer.bukkit.MainClass;
+
+import org.bukkit.Bukkit;
+import static org.bukkit.ChatColor.*;
+import org.bukkit.scheduler.BukkitRunnable;
+
+public class CountDown extends BukkitRunnable{
+
+	int count = 10;
+	
+	@Override
+	public void run() {
+		if(count>0){
+			
+			Bukkit.broadcastMessage(MainClass.prefisso + (RED + "Mancano " + ));
+			
+			count--;
+		}
+	}
+
+}

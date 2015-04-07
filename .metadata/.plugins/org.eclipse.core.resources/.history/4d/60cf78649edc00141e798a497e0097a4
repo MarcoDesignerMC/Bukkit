@@ -1,0 +1,10 @@
+package me.timer.bukkit;
+
+public class Count implements Runnable {
+
+	@Override
+	public void run() {
+		
+	}
+
+}

@@ -1,7 +1,0 @@
-package me.timer.bukkit;
-
-import org.bukkit.command.CommandExecutor;
-
-public class StartTimer implements CommandExecutor {
-
-}

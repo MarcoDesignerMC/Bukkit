@@ -1,0 +1,7 @@
+package me.timer.bukkit.Runnables;
+
+import org.bukkit.scheduler.BukkitRunnable;
+
+public class Start extends BukkitRunnable{
+
+}

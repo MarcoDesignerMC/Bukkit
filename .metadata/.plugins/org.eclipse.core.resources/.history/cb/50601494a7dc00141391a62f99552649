@@ -1,0 +1,32 @@
+package me.timer.bukkit.Runnables;
+
+import me.timer.bukkit.MainClass;
+import me.timer.bukkit.StartTimer;
+
+import org.bukkit.Bukkit;
+import org.bukkit.scheduler.BukkitRunnable;
+
+import static org.bukkit.ChatColor.*;
+
+public class Start extends BukkitRunnable {
+
+	public static int counter;
+	MainClass plugin;
+	int spazioDiTempo = 4;
+
+	@Override
+	public void run() {
+		if (counter < 7200) {
+			if (counter % spazioDiTempo == 0) {
+				Bukkit.broadcastMessage(StartTimer.prefisso
+						+ (RED + "Sono passati 20 minuti."));
+			}
+		} else if (Start.counter >= 7200) {
+			Bukkit.broadcastMessage(StartTimer.prefisso
+					+ (BOLD + (RED + "La UHC è terminata.")));
+			this.cancel();
+		}
+
+	}
+
+}

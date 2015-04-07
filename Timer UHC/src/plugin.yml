@@ -1,0 +1,10 @@
+name: Timer UHC
+version: 0.1
+author: MarcoDesignerMC
+main: me.timer.bukkit.MainClass
+commands:
+  timer:
+    description: Inizia il timer dell'UHC
+permissions:
+  canStartTimer:
+    description: Può far partire la UHC

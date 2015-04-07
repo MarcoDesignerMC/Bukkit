@@ -1,0 +1,27 @@
+package me.timer.bukkit.Runnables;
+
+import static org.bukkit.ChatColor.*;
+import me.timer.bukkit.MainClass;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.scheduler.BukkitRunnable;
+
+public class CountDown extends BukkitRunnable {
+
+	int count = 10;
+
+	@Override
+	public void run() {
+		if (count > 0) {
+
+			ChatColor ColorSec = (count <= 3) ? GREEN : YELLOW;
+
+			Bukkit.broadcastMessage(MainClass.prefisso
+					+ (RED + "Mancano " + (ColorSec + count) + RED + " secondi."));
+
+			count--;
+		}
+	}
+
+}

@@ -1,0 +1,11 @@
+package me.timer.bukkit;
+
+public class Count implements Runnable {
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

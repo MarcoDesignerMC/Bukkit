@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;StartTimer.java&apos; to &apos;Timer UHC/src/me.timer.bukkit&apos;&#x0D;&#x0A;- Original project: &apos;TimerUHC&apos;&#x0D;&#x0A;- Destination element: &apos;Timer UHC/src/me.timer.bukkit&apos;&#x0D;&#x0A;- Original element: &apos;StartTimer.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move file" destination="=Timer UHC/src&lt;me.timer.bukkit" element1="StartTimer.java" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1428359049457" units="0" version="1.0"/>
+</session>

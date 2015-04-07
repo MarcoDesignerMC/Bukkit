@@ -1,0 +1,24 @@
+package me.timer.bukkit.copy;
+
+import java.util.logging.Logger;
+
+import org.bukkit.plugin.PluginDescriptionFile;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public final class MainClass extends JavaPlugin {
+
+	public final Logger log = Logger.getLogger("Minecraft");
+	PluginDescriptionFile pdfFile = this.getDescription();
+
+	@Override
+	public void onEnable() {
+		this.getCommand("timer").setExecutor(new StartTimer());
+
+		this.log.info(pdfFile.getName() + " has been enabled");
+	}
+
+	public void onDisable() {
+		this.log.info(pdfFile.getName() + " has been disabled");
+	}
+
+}

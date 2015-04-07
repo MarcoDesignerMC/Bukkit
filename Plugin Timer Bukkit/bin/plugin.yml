@@ -1,6 +1,0 @@
-name: UHC Timer
-version: 0.1
-main: me.marco.pluginTimer.MainClass
-commands:
-	canStartTimer:
-		description: Inizia la UHC 

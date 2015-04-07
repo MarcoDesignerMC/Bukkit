@@ -1,0 +1,5 @@
+package me.timer.bukkit.Util;
+
+public static class Util {
+
+}

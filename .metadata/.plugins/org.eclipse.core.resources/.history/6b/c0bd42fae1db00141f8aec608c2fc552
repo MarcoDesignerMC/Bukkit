@@ -1,0 +1,6 @@
+name: UHCTimer
+version: 0.1
+author: MarcoDesignerMC
+main: me.timer.bukkit.MainClass
+commands:
+	timer:

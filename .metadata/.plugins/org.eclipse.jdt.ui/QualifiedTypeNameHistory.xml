@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.bukkit.plugin.java.JavaPlugin"/>
+<fullyQualifiedTypeName name="org.fusesource.jansi.Ansi.Color"/>
+<fullyQualifiedTypeName name="org.bukkit.plugin.PluginDescriptionFile"/>
+<fullyQualifiedTypeName name="java.util.logging.Logger"/>
+<fullyQualifiedTypeName name="org.bukkit.entity.Player"/>
+<fullyQualifiedTypeName name="org.bukkit.Color"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="org.bukkit.scheduler.BukkitScheduler"/>
+<fullyQualifiedTypeName name="org.bukkit.scheduler.BukkitRunnable"/>
+<fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
+<fullyQualifiedTypeName name="me.timer.bukkit.Runnables.Start"/>
+<fullyQualifiedTypeName name="me.timer.bukkit.MainClass"/>
+<fullyQualifiedTypeName name="me.timer.bukkit.StartTimer"/>
+<fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+<fullyQualifiedTypeName name="org.bukkit.World"/>
+<fullyQualifiedTypeName name="org.bukkit.Sound"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,8 @@
+name: Count
+version: 2.0
+main: me.count.Down.Main
+commands:
+	countdown:
+		description: It counts down
+	cdvisit:
+		description: Visit the website link

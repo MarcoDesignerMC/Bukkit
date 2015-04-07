@@ -1,0 +1,64 @@
+package me.timer.bukkit;
+
+import me.timer.bukkit.Runnables.Start;
+
+import org.bukkit.Bukkit;
+
+import static org.bukkit.ChatColor.*;
+
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+public class StartTimer implements CommandExecutor {
+
+	public static boolean counting;
+	int timer = 0, counter = 0;
+	Start start;
+
+	public static Object prefisso = YELLOW + "Ne" + BLUE + "xu" + RED + "s"
+			+ GREEN + "UHC" + GRAY + " >> ";
+
+	@Override
+	public boolean onCommand(CommandSender sender, Command cmd,
+			String commandLabel, String[] args) {
+		Player p = (Player) sender;
+	/*
+	 * 
+	 * HA I PERMESSI E HA SCRITTO TIMER
+	 * 
+	 */
+		if (p.hasPermission("canStartTimer")
+				&& commandLabel.equalsIgnoreCase("timer")) {
+
+			// NON HA SCRITTO NULLA
+			if (args.length == 0) {
+				p.sendMessage(prefisso
+						+ (GREEN + "Comando: /timer <start/stop>"));
+				//HA SCRITTO START
+			} else if (args[0].equalsIgnoreCase("start")) {
+				startCount();
+				new MainClass().runTask();
+				
+				//HA SCRITTO STOP
+			} else if (args[0].equalsIgnoreCase("stop")) {
+			}
+			
+	/*
+	 * 
+	 * NON HA I PERMESSI
+	 * 
+	 */
+		} else if (!p.hasPermission("canStartTimer")) {
+			p.sendMessage(RED + "Scusa " + p.getName().toString()
+					+ ", non hai accesso a questo comando.");
+		}
+		return false;
+	}
+
+	public void startCount() {
+		Bukkit.broadcastMessage(prefisso
+				+ (RED + "La UHC è iniziata, vinca il team migliore."));
+	}
+}

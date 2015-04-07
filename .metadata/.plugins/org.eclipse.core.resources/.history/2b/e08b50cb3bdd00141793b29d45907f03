@@ -1,0 +1,37 @@
+package me.timer.bukkit.Runnables;
+
+import static org.bukkit.ChatColor.*;
+import me.timer.bukkit.MainClass;
+import me.timer.bukkit.Util.Util;
+
+import org.bukkit.Bukkit;
+import org.bukkit.Sound;
+import org.bukkit.scheduler.BukkitRunnable;
+
+public class CountDown extends BukkitRunnable {
+
+	int count = 10;
+	MainClass plugin;
+
+	public CountDown(MainClass plugin) {
+		this.plugin = plugin;
+	}
+
+	@Override
+	public void run() {
+		if (count > 0) {
+			if (count % 5 == 0 && count > 0)
+				;
+			{
+				Bukkit.broadcastMessage(MainClass.prefisso
+						+ (RED + "Mancano " + YELLOW + count + RED + " secondi."));
+				count--;
+			}
+		} else {
+			Bukkit.broadcastMessage(MainClass.prefisso
+					+ (RED + (BOLD + "Teletrasporto in corso, preparati all'inferno.")));
+			Util.playSound(Sound.BLAZE_DEATH, 1, 0);
+			this.cancel();
+		}
+	}
+}

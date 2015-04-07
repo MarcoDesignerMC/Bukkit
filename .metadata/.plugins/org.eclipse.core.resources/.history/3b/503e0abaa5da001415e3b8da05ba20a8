@@ -1,7 +1,0 @@
-package me.timer.bukkit;
-
-import org.bukkit.plugin.java.JavaPlugin;
-
-public class MainClass extends JavaPlugin {
-
-}

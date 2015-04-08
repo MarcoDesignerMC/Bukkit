@@ -1,16 +1,14 @@
 package me.timer.bukkit;
 
-import static org.bukkit.ChatColor.BLUE;
-import static org.bukkit.ChatColor.GRAY;
-import static org.bukkit.ChatColor.GREEN;
-import static org.bukkit.ChatColor.ITALIC;
-import static org.bukkit.ChatColor.RED;
-import static org.bukkit.ChatColor.YELLOW;
+import static org.bukkit.ChatColor.*;
 
 import java.util.logging.Logger;
 
+import me.timer.bukkit.Options.Languages;
+import me.timer.bukkit.Options.Languages.Lang;
 import me.timer.bukkit.Runnables.CountDown;
 import me.timer.bukkit.Runnables.Start;
+import me.timer.bukkit.Util.GlobalVariables;
 import me.timer.bukkit.Util.Util;
 
 import org.bukkit.Bukkit;
@@ -25,6 +23,8 @@ public final class MainClass extends JavaPlugin {
 
 	CountDown cd;
 	Start start;
+	GlobalVariables var = new GlobalVariables();
+	Languages str = new Languages();
 
 	public static Object prefisso = YELLOW + "Ne" + BLUE + "xu" + RED + "s"
 			+ GREEN + "UHC" + GRAY + " >> ";
@@ -34,13 +34,13 @@ public final class MainClass extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		log.info(YELLOW + "UHCTimer has been enabled");
+		log.info("UHCTimer has been enabled");
 	}
 
 	@Override
 	public void onDisable() {
 		getServer().getScheduler().cancelAllTasks();
-		log.info(RED + "UHCTimer has been disabled");
+		log.info("UHCTimer has been disabled");
 	}
 
 	@Override
@@ -56,8 +56,7 @@ public final class MainClass extends JavaPlugin {
 
 			// NON HA SCRITTO NULLA
 			if (args.length == 0) {
-				p.sendMessage(prefisso
-						+ (GREEN + "Comando: /timer <start/stop>"));
+				p.sendMessage(prefisso + (GREEN + "Usage: /timer <start/stop>/<lang>"));
 				// HA SCRITTO START
 			} else if (args[0].equalsIgnoreCase("start")) {
 				startCount();
@@ -65,26 +64,37 @@ public final class MainClass extends JavaPlugin {
 				// HA SCRITTO STOP
 			} else if (args[0].equalsIgnoreCase("stop")) {
 				Start.counter = 0;
-				Bukkit.broadcastMessage(prefisso
-						+ (YELLOW + (ITALIC + "La UHC è stata fermata.")));
+				Bukkit.broadcastMessage(prefisso + ""
+						+ str.getStrings(var.getLanguage(), str.fermata));
 				Util.playSound(Sound.ITEM_BREAK, 1, 0);
 				getServer().getScheduler().cancelAllTasks();
+			} else if (args[0].equalsIgnoreCase("lang")
+					|| args[0].equalsIgnoreCase("language")) {
+				if(args.length == 1) {
+					p.sendMessage(prefisso + "" + RED + "Usage: /timer lang <IT/EN>");
+				}
+				else if (args[1].equalsIgnoreCase("it")) {
+					p.sendMessage(prefisso + "" + YELLOW + (ITALIC + "Lingua settata in Italiano."));
+					var.setLanguage(Lang.IT);
+				} else if (args[1].equalsIgnoreCase("en")) {
+					var.setLanguage(Lang.EN);
+					p.sendMessage(prefisso + "" + YELLOW + (ITALIC + "Language changed to English."));
+				} 
 			}
 			/*
 			 * 
 			 * NON HA I PERMESSI
 			 */
 		} else if (!p.hasPermission("canStartTimer")) {
-			p.sendMessage(RED + "Scusa " + p.getName().toString()
-					+ ", non hai accesso a questo comando.");
+			p.sendMessage("" + str.noPermissions(p, var.getLanguage()));
 		}
 		return false;
 	}
 
 	public void startCount() {
 		start = new Start(this); // 20 minuti = 20m * 60s
-		Bukkit.broadcastMessage(prefisso
-				+ (RED + "La UHC è iniziata, vinca il team migliore."));
+		Bukkit.broadcastMessage(prefisso + ""
+				+ str.getStrings(var.getLanguage(), str.inizio));
 		start.runTaskTimer(this, 0, 20 * 60 * 20L);
 	}
 

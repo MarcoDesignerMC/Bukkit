@@ -5,11 +5,9 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
 public class Util {
-
-	public static void playSound(Sound s,float volume, float pitch){
-		for(Player p : Bukkit.getOnlinePlayers()){
+	public static void playSound(Sound s, float volume, float pitch) {
+		for (Player p : Bukkit.getServer().getOnlinePlayers()) {
 			p.playSound(p.getLocation(), s, volume, pitch);
 		}
 	}
-	
 }

@@ -5,7 +5,7 @@ import me.timer.bukkit.Options.Languages.Lang;
 
 public class GlobalVariables {
 
-	private static Lang Language = Lang.EN;
+	private Lang Language = Lang.EN;
 	MainClass main;
 
 	private String durationTime = main.getConfig().getString("total_time");

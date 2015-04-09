@@ -23,7 +23,7 @@ public class MainClass extends JavaPlugin {
 
 	CountDown cd;
 	Start start;
-	GlobalVariables var;
+	GlobalVariables var = new GlobalVariables();
 	Languages str;
 
 	public static Object prefisso = YELLOW + "Ne" + BLUE + "xu" + RED + "s"

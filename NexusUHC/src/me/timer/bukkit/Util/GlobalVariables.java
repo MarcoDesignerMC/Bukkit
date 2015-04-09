@@ -8,11 +8,17 @@ public class GlobalVariables {
 	private static Lang Language = Lang.EN;
 	MainClass main;
 
-	private String durationTime = main.getConfig().getString("total_time");
-	private String Announcements = main.getConfig().getString(
-			"numberOfAnnouncements");
+	private String durationTime;
+	private String Announcements;
 	int num, interval, numAnn, divisore;
 	boolean secondi;
+
+	public GlobalVariables() {
+		durationTime = main.getConfig().getString("total_time");
+		Announcements = main.getConfig().getString("numberOfAnnouncements");
+		numAnn = Integer.parseInt(Announcements);
+
+	}
 
 	public Lang getLanguage() {
 		return Language;
@@ -51,7 +57,6 @@ public class GlobalVariables {
 
 	public int getInterval() {
 
-		numAnn = Integer.parseInt(Announcements);
 		divisore = (durationTime.contains("h")) ? 60 : 1;
 		interval = (getNum() / numAnn) / divisore;
 
@@ -62,14 +67,12 @@ public class GlobalVariables {
 
 	public int getIntervalInSeconds() {
 
-		numAnn = Integer.parseInt(Announcements);
 		interval = (getNum() / numAnn);
 
 		return interval;
 	}
 
 	public int getNumAnn() {
-		numAnn = Integer.parseInt(Announcements);
 
 		return numAnn;
 	}

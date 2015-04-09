@@ -8,9 +8,10 @@ public class GlobalVariables {
 	private static Lang Language = Lang.EN;
 	MainClass main;
 
-	private String durationTime= main.getConfig().getString("total_time");
-	private String Announcements= main.getConfig().getString("numberOfAnnouncements");
-	int num, interval, numAnn= Integer.parseInt(Announcements), divisore;
+	private String durationTime = main.getConfig().getString("total_time");
+	private String Announcements = main.getConfig().getString(
+			"numberOfAnnouncements");
+	int num, interval, numAnn = Integer.parseInt(Announcements), divisore;
 	boolean secondi;
 
 	public Lang getLanguage() {

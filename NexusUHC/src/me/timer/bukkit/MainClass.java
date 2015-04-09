@@ -53,7 +53,7 @@ public class MainClass extends JavaPlugin {
 		 * 
 		 * HA I PERMESSI E HA SCRITTO TIMER
 		 */
-		if (p.hasPermission("canStartTimer")
+		if (sender.hasPermission("canStartTimer")
 				&& commandLabel.equalsIgnoreCase("timer")
 				&& sender instanceof Player) {
 

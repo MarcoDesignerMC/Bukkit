@@ -12,10 +12,12 @@ public class GlobalVariables {
 	boolean secondi;
 
 	public GlobalVariables(MainClass plugin) {
+		main = plugin;
 
-		durationTime = main.getConfig().getString("total_time");
-		Announcements = main.getConfig().getString("numberOfAnnouncements");
+		durationTime = plugin.getConfig().getString("total_time");
+		Announcements = plugin.getConfig().getString("numberOfAnnouncements");
 		numAnn = Integer.parseInt(Announcements);
+
 	}
 
 	public Lang getLanguage() {

@@ -37,7 +37,7 @@ public class MainClass extends JavaPlugin {
 		getConfig().options().copyDefaults(true);
 		saveConfig();
 		var = new GlobalVariables(this);
-		str = new Languages();
+		str = new Languages(this);
 		log.info("UHCTimer has been enabled");
 	}
 
@@ -69,7 +69,7 @@ public class MainClass extends JavaPlugin {
 
 				// HA SCRITTO STOP
 			} else if (args[0].equalsIgnoreCase("stop")) {
-				Start.counter = 0;
+				start.setCounter(0);
 				Bukkit.broadcastMessage(prefisso + ""
 						+ str.getStrings(var.getLanguage(), str.fermata));
 				Util.playSound(Sound.ITEM_BREAK, 1, 0);

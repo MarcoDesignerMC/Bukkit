@@ -13,12 +13,16 @@ import org.bukkit.scheduler.BukkitRunnable;
 public class CountDown extends BukkitRunnable {
 
 	int count = 10;
+	
 	MainClass plugin;
 	GlobalVariables var;
 	Languages str;
+	Start start;
 
 	public CountDown(MainClass plugin) {
 		this.plugin = plugin;
+		var = new GlobalVariables(plugin);
+		str = new Languages(plugin);
 	}
 
 	@Override
@@ -42,7 +46,7 @@ public class CountDown extends BukkitRunnable {
 			Bukkit.broadcastMessage(MainClass.prefisso + ""
 					+ str.getStrings(var.getLanguage(), str.teletrasporto));
 			Util.playSound(Sound.BLAZE_DEATH, 1, 0);
-			Start.counter = 0;
+			start.setCounter(0);
 			this.cancel();
 		}
 		count--;

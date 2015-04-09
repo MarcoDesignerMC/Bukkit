@@ -7,15 +7,22 @@ import static org.bukkit.ChatColor.YELLOW;
 
 import java.util.HashMap;
 
+import me.timer.bukkit.MainClass;
 import me.timer.bukkit.Util.GlobalVariables;
 
 import org.bukkit.entity.Player;
 
 public class Languages {
 	GlobalVariables var;
+	MainClass main;
 
 	public static enum Lang {
 		IT, EN,
+	}
+
+	public Languages(MainClass plugin) {
+		main = plugin;
+		var = new GlobalVariables(plugin);
 	}
 
 	/*

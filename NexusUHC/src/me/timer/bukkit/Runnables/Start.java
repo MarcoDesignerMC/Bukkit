@@ -11,13 +11,26 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class Start extends BukkitRunnable {
 
-	public static int counter = 0;
+	private int counter = 0;
+	public int getCounter() {
+		return counter;
+	}
+
+	public void setCounter(int counter) {
+		this.counter = counter;
+	}
+
 	MainClass plugin;
 	int spazioDiTempo = 4; // 20 * 60;
 	GlobalVariables var;
 	Languages str;
 
 	CountDown cd;
+	public Start(MainClass plugin) {
+		this.plugin = plugin;
+		var = new GlobalVariables(plugin);
+		str = new Languages(plugin);
+	}
 
 	@Override
 	public void run() {
@@ -30,14 +43,11 @@ public class Start extends BukkitRunnable {
 			Bukkit.broadcastMessage(MainClass.prefisso + ""
 					+ str.getStrings(var.getLanguage(), str.fra10secondi));
 			Util.playSound(Sound.AMBIENCE_THUNDER, 1, 0);
-			if (Start.counter >= var.getNumAnn())
+			if (counter >= var.getNumAnn())
 				plugin.startFinalCountDown();
 			this.cancel();
 		}
 		counter++;
 	}
 
-	public Start(MainClass plugin) {
-		this.plugin = plugin;
-	}
 }

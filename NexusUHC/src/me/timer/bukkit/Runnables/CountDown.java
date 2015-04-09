@@ -14,8 +14,8 @@ public class CountDown extends BukkitRunnable {
 
 	int count = 10;
 	MainClass plugin;
-	GlobalVariables var;// = new GlobalVariables();
-	Languages str;// = new Languages();
+	GlobalVariables var;
+	Languages str;
 
 	public CountDown(MainClass plugin) {
 		this.plugin = plugin;

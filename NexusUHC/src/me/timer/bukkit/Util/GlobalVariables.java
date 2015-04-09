@@ -8,15 +8,11 @@ public class GlobalVariables {
 	private static Lang Language = Lang.EN;
 	MainClass main;
 
-	private String durationTime;
-	private String Announcements;
+	private String durationTime = main.getConfig().getString("total_time");
+	private String Announcements = main.getConfig().getString(
+			"numberOfAnnouncements");
 	int num, interval, numAnn, divisore;
 	boolean secondi;
-
-	public GlobalVariables() {
-		durationTime = main.getConfig().getString("total_time");
-		Announcements = main.getConfig().getString("numberOfAnnouncements");
-	}
 
 	public Lang getLanguage() {
 		return Language;

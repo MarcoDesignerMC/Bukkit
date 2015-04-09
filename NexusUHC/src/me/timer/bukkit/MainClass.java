@@ -25,7 +25,7 @@ public class MainClass extends JavaPlugin {
 	Start start;
 	GlobalVariables var;
 	Languages str;
-
+	
 	public static Object prefisso = YELLOW + "Ne" + BLUE + "xu" + RED + "s"
 			+ GREEN + "UHC" + GRAY + " >> ";
 
@@ -36,7 +36,6 @@ public class MainClass extends JavaPlugin {
 	public void onEnable() {
 		getConfig().options().copyDefaults(true);
 		saveConfig();
-
 		log.info("UHCTimer has been enabled");
 	}
 

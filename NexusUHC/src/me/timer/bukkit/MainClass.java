@@ -36,7 +36,7 @@ public class MainClass extends JavaPlugin {
 	public void onEnable() {
 		getConfig().options().copyDefaults(true);
 		saveConfig();
-		var = new GlobalVariables();
+		var = new GlobalVariables(this);
 		str = new Languages();
 		log.info("UHCTimer has been enabled");
 	}

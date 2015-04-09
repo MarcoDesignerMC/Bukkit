@@ -7,12 +7,16 @@ public class GlobalVariables {
 
 	private Lang Language = Lang.EN;
 	MainClass main;
-
-	private String durationTime = main.getConfig().getString("total_time");
-	private String Announcements = main.getConfig().getString(
-			"numberOfAnnouncements");
-	int num, interval, numAnn = Integer.parseInt(Announcements), divisore;
+	private String durationTime, Announcements;
+	int num, interval, numAnn, divisore;
 	boolean secondi;
+
+	public GlobalVariables(MainClass plugin) {
+
+		durationTime = main.getConfig().getString("total_time");
+		Announcements = main.getConfig().getString("numberOfAnnouncements");
+		numAnn = Integer.parseInt(Announcements);
+	}
 
 	public Lang getLanguage() {
 		return Language;

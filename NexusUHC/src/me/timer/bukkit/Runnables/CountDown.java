@@ -30,12 +30,12 @@ public class CountDown extends BukkitRunnable {
 		if (count > 0) {
 			if (count % 5 == 0 && count > 0) {
 
-				Bukkit.broadcastMessage(MainClass.prefisso + ""
+				Bukkit.broadcastMessage(plugin.prefisso + ""
 						+ str.getStringCountdown(1, var.getLanguage()) + YELLOW
 						+ count + str.getStringCountdown(2, var.getLanguage()));
 			}
 			if (count <= 3) {
-				Bukkit.broadcastMessage(MainClass.prefisso + ""
+				Bukkit.broadcastMessage(plugin.prefisso + ""
 						+ str.getStringCountdown(1, var.getLanguage()) + BOLD
 						+ count + ""
 						+ str.getStringCountdown(2, var.getLanguage()));
@@ -43,7 +43,7 @@ public class CountDown extends BukkitRunnable {
 				Util.playSound(Sound.NOTE_PLING, 0.6f, 2);
 			}
 		} else {
-			Bukkit.broadcastMessage(MainClass.prefisso + ""
+			Bukkit.broadcastMessage(plugin.prefisso + ""
 					+ str.getStrings(var.getLanguage(), str.teletrasporto));
 			Util.playSound(Sound.BLAZE_DEATH, 1, 0);
 			start.setCounter(0);

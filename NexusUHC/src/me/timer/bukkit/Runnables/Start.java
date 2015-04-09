@@ -35,12 +35,12 @@ public class Start extends BukkitRunnable {
 	@Override
 	public void run() {
 		if (counter < var.getNumAnn() && counter > 0) {
-			Bukkit.broadcastMessage(MainClass.prefisso + ""
+			Bukkit.broadcastMessage(plugin.prefisso + ""
 					+ str.getStrings(var.getLanguage(), str.minutiTrascorsi));
 			Util.playSound(Sound.NOTE_PLING, 0.6f, 2);
 
 		} else if (counter >= var.getNumAnn()) {
-			Bukkit.broadcastMessage(MainClass.prefisso + ""
+			Bukkit.broadcastMessage(plugin.prefisso + ""
 					+ str.getStrings(var.getLanguage(), str.fra10secondi));
 			Util.playSound(Sound.AMBIENCE_THUNDER, 1, 0);
 			if (counter >= var.getNumAnn())

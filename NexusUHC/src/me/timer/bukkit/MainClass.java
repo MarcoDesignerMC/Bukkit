@@ -55,7 +55,7 @@ public class MainClass extends JavaPlugin {
 		 */
 		if (p.hasPermission("canStartTimer")
 				&& commandLabel.equalsIgnoreCase("timer")
-				&& (p instanceof Player && sender instanceof Player)) {
+				&& sender instanceof Player) {
 
 			// NON HA SCRITTO NULLA
 			if (args.length == 0) {

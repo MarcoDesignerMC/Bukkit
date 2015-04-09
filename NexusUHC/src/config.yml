@@ -1,0 +1,5 @@
+#You can put 2h (2 hours) as 14m (14 minutes).
+#P.s. The min and the max value are 10m and 12h
+#The value has to be the first to be written
+total_time: 2h
+numberOfAnnouncements: 6

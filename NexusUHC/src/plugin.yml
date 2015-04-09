@@ -1,0 +1,10 @@
+name: NexusUHC
+version: 1.1012
+author: MarcoDesignerMC
+main: me.timer.bukkit.MainClass
+commands:
+  timer:
+    description: see all commands options
+permissions:
+  canStartTimer:
+    description: Can start the UHC timer

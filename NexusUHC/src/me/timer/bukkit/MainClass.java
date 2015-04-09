@@ -25,7 +25,7 @@ public class MainClass extends JavaPlugin {
 	Start start;
 	GlobalVariables var;
 	Languages str;
-	
+
 	public static Object prefisso = YELLOW + "Ne" + BLUE + "xu" + RED + "s"
 			+ GREEN + "UHC" + GRAY + " >> ";
 
@@ -54,7 +54,8 @@ public class MainClass extends JavaPlugin {
 		 * HA I PERMESSI E HA SCRITTO TIMER
 		 */
 		if (p.hasPermission("canStartTimer")
-				&& commandLabel.equalsIgnoreCase("timer")) {
+				&& commandLabel.equalsIgnoreCase("timer")
+				&& (p instanceof Player && sender instanceof Player)) {
 
 			// NON HA SCRITTO NULLA
 			if (args.length == 0) {
@@ -74,7 +75,7 @@ public class MainClass extends JavaPlugin {
 			} else if (args[0].equalsIgnoreCase("lang")
 					|| args[0].equalsIgnoreCase("language")) {
 				if (args.length == 1) {
-					p.sendMessage(prefisso + "" + RED
+					p.sendMessage(prefisso + "" + GREEN
 							+ "Usage: /timer lang <IT/EN>");
 				} else if (args[1].equalsIgnoreCase("it")) {
 					p.sendMessage(prefisso + "" + YELLOW

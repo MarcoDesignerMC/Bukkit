@@ -26,11 +26,11 @@ public class Start extends BukkitRunnable {
 					+ str.getStrings(var.getLanguage(), str.minutiTrascorsi));
 			Util.playSound(Sound.NOTE_PLING, 0.6f, 2);
 
-		} else if (counter >= 6) {
+		} else if (counter >= var.getNumAnn()) {
 			Bukkit.broadcastMessage(MainClass.prefisso + ""
 					+ str.getStrings(var.getLanguage(), str.fra10secondi));
 			Util.playSound(Sound.AMBIENCE_THUNDER, 1, 0);
-			if (Start.counter >= 6)
+			if (Start.counter >= var.getNumAnn())
 				plugin.startFinalCountDown();
 			this.cancel();
 		}

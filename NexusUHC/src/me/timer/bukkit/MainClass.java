@@ -15,14 +15,17 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class MainClass extends JavaPlugin {
-
+	
+/***RUNNABLES***/
 	CountDown cd;
 	Start start;
+	
+/***GLOBAL***/
 	GlobalVariables var;
 	Languages str;
 
-	public Object prefisso = YELLOW + "Ne" + BLUE + "xu" + RED + "s"
-			+ GREEN + "UHC" + GRAY + " >> ";
+	public Object prefisso = YELLOW + "Ne" + BLUE + "xu" + RED + "s" + GREEN
+			+ "UHC" + GRAY + " >> ";
 
 	public final Logger log = Logger.getLogger("Minecraft");
 	PluginDescriptionFile pdfFile = this.getDescription();
@@ -31,12 +34,12 @@ public class MainClass extends JavaPlugin {
 	public void onEnable() {
 		getConfig().options().copyDefaults(true);
 		saveConfig();
-		
+
 		this.getCommand("timer").setExecutor(new TimerCommand(this));
-		
+
 		var = new GlobalVariables(this);
 		str = new Languages(this);
-		log.info("UHCTimer has been enabled");
+		log.info("UHCTimer has been enabled: " + var.getNumAnn() + " announcements; " +var.getInterval() + " interval; " + var.getNum() + " time" );
 	}
 
 	@Override

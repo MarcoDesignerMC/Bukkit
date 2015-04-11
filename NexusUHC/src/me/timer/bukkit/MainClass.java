@@ -15,12 +15,14 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class MainClass extends JavaPlugin {
-	
-/***RUNNABLES***/
+
+	/**
+	 * RUNNABLES **
+	 */
 	CountDown cd;
 	Start start;
-	
-/***GLOBAL***/
+
+	/*** GLOBAL ***/
 	GlobalVariables var;
 	Languages str;
 
@@ -39,7 +41,9 @@ public class MainClass extends JavaPlugin {
 
 		var = new GlobalVariables(this);
 		str = new Languages(this);
-		log.info("UHCTimer has been enabled: " + var.getNumAnn() + " announcements; " +var.getInterval() + " interval; " + var.getNum() + " time" );
+		log.info("UHCTimer has been enabled: " + var.getNumAnn()
+				+ " announcements; " + var.getInterval() + " interval; "
+				+ var.getNum() + " time");
 	}
 
 	@Override
@@ -49,6 +53,8 @@ public class MainClass extends JavaPlugin {
 	}
 
 	public void startCount() {
+		var = new GlobalVariables(this);
+		str = new Languages(this);
 		start = new Start(this);
 		Bukkit.broadcastMessage(prefisso + ""
 				+ str.getStrings(var.getLanguage(), str.inizio));
@@ -59,5 +65,4 @@ public class MainClass extends JavaPlugin {
 		cd = new CountDown(this);
 		cd.runTaskTimer(this, 0, 20L);
 	}
-
 }

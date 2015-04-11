@@ -29,11 +29,11 @@ public class Languages {
 	 * 
 	 * VARIABLES
 	 */
-	public HashMap<Lang, Object> inizio = new HashMap<Lang, Object>();
-	public HashMap<Lang, Object> minutiTrascorsi = new HashMap<Lang, Object>();
-	public HashMap<Lang, Object> fra10secondi = new HashMap<Lang, Object>();
-	public HashMap<Lang, Object> teletrasporto = new HashMap<Lang, Object>();
-	public HashMap<Lang, Object> fermata = new HashMap<Lang, Object>();
+	public HashMap<Lang, Object> inizio = new HashMap<>();
+	public HashMap<Lang, Object> minutiTrascorsi = new HashMap<>();
+	public HashMap<Lang, Object> fra10secondi = new HashMap<>();
+	public HashMap<Lang, Object> teletrasporto = new HashMap<>();
+	public HashMap<Lang, Object> fermata = new HashMap<>();
 
 	public Languages() {
 
@@ -93,18 +93,20 @@ public class Languages {
 
 	public Object noPermissions(Player p, Lang lang) {
 		Object[] array = {
-				RED + "Scusa " + p.getName().toString()
+				RED + "Scusa " + p.getName()
 						+ ", non hai accesso a questo comando.",
 				RED
 						+ "Sorry "
-						+ p.getName().toString()
+						+ p.getName()
 						+ ", you don't have enough permission to perform this command." };
 		int a = 0;
 		switch (lang) {
 		case IT:
 			a = 0;
+			break;
 		case EN:
 			a = 1;
+			break;
 		}
 		return array[a];
 	}

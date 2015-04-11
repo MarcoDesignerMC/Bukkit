@@ -21,11 +21,9 @@ public class Start extends BukkitRunnable {
 	}
 
 	MainClass plugin;
-	int spazioDiTempo = 4; // 20 * 60;
 	GlobalVariables var;
 	Languages str;
 
-	CountDown cd;
 	public Start(MainClass plugin) {
 		this.plugin = plugin;
 		var = new GlobalVariables(plugin);

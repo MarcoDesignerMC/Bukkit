@@ -10,7 +10,6 @@ import me.timer.bukkit.Runnables.CountDown;
 import me.timer.bukkit.Runnables.Start;
 import me.timer.bukkit.Util.GlobalVariables;
 
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -50,19 +49,5 @@ public class MainClass extends JavaPlugin {
 	public void onDisable() {
 		getServer().getScheduler().cancelAllTasks();
 		log.info("UHCTimer has been disabled");
-	}
-
-	public void startCount() {
-		var = new GlobalVariables(this);
-		str = new Languages(this);
-		start = new Start(this);
-		Bukkit.broadcastMessage(prefisso + ""
-				+ str.getStrings(var.getLanguage(), str.inizio));
-		start.runTaskTimer(this, 0, var.getIntervalInSeconds() * 20L);
-	}
-
-	public void startFinalCountDown() {
-		cd = new CountDown(this);
-		cd.runTaskTimer(this, 0, 20L);
 	}
 }

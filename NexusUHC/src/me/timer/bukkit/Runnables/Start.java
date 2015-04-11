@@ -12,17 +12,11 @@ import org.bukkit.scheduler.BukkitRunnable;
 public class Start extends BukkitRunnable {
 
 	private int counter = 0;
-	public int getCounter() {
-		return counter;
-	}
-
-	public void setCounter(int counter) {
-		this.counter = counter;
-	}
 
 	MainClass plugin;
 	GlobalVariables var;
 	Languages str;
+	CountDown cd;
 
 	public Start(MainClass plugin) {
 		this.plugin = plugin;
@@ -34,18 +28,26 @@ public class Start extends BukkitRunnable {
 	public void run() {
 		if (counter < var.getNumAnn() && counter > 0) {
 			Bukkit.broadcastMessage(plugin.prefisso + ""
-					+ str.getStrings(var.getLanguage(), str.minutiTrascorsi));
+					+ str.getStrings(GlobalVariables.Language, str.minutiTrascorsi));
 			Util.playSound(Sound.NOTE_PLING, 0.6f, 2);
 
 		} else if (counter >= var.getNumAnn()) {
 			Bukkit.broadcastMessage(plugin.prefisso + ""
-					+ str.getStrings(var.getLanguage(), str.fra10secondi));
+					+ str.getStrings(GlobalVariables.Language, str.fra10secondi));
 			Util.playSound(Sound.AMBIENCE_THUNDER, 1, 0);
 			if (counter >= var.getNumAnn())
-				plugin.startFinalCountDown();
+				cd = new CountDown(plugin);
+				cd.runTaskTimer(plugin, 0, 20L);
 			this.cancel();
 		}
 		counter++;
 	}
 
+	public int getCounter() {
+		return counter;
+	}
+	
+	public void setCounter(int counter) {
+		this.counter = counter;
+	}
 }

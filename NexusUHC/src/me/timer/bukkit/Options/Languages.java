@@ -20,33 +20,30 @@ public class Languages {
 		IT, EN,
 	}
 
-	public Languages(MainClass plugin) {
-		main = plugin;
-		var = new GlobalVariables(plugin);
-	}
-
 	/*
 	 * 
 	 * VARIABLES
 	 */
-	public HashMap<Lang, Object> inizio = new HashMap<>();
-	public HashMap<Lang, Object> minutiTrascorsi = new HashMap<>();
-	public HashMap<Lang, Object> fra10secondi = new HashMap<>();
-	public HashMap<Lang, Object> teletrasporto = new HashMap<>();
-	public HashMap<Lang, Object> fermata = new HashMap<>();
+	public  HashMap<Lang, Object> inizio = new HashMap<Lang, Object>();
+	public  HashMap<Lang, Object> minutiTrascorsi = new HashMap<Lang, Object>();
+	public  HashMap<Lang, Object> fra10secondi = new HashMap<Lang, Object>();
+	public  HashMap<Lang, Object> teletrasporto = new HashMap<Lang, Object>();
+	public  HashMap<Lang, Object> fermata = new HashMap<Lang, Object>();
 
-	public Languages() {
+	public Languages(MainClass plugin) {
+		main = plugin;
+		var = new GlobalVariables(plugin);
 
 		inizio.put(Lang.IT, RED + "La UHC è iniziata, vinca il team migliore.");
 		inizio.put(Lang.EN, RED + "The UHC is started, the best team wins.");
 
-		fermata.put(Lang.IT, (YELLOW + (ITALIC + "La UHC è stata fermata.")));
-		fermata.put(Lang.EN, (YELLOW + (ITALIC + "The UHC has been stopped.")));
-		String itMinuti_o_secondi = (!var.isSecondi()) ? " minuti."
+		fermata.put(Lang.IT, YELLOW + (ITALIC + "La UHC è stata fermata."));
+		fermata.put(Lang.EN, YELLOW + (ITALIC + "The UHC has been stopped."));
+		String itMinuti_o_secondi = (!GlobalVariables.secondi) ? " minuti."
 				: " secondi.";
-		String enMinuti_o_secondi = (!var.isSecondi()) ? " minutes"
+		String enMinuti_o_secondi = (!GlobalVariables.secondi) ? " minutes"
 				: " seconds.";
-		minutiTrascorsi.put(Lang.IT, RED + "Sono passati" + var.getInterval()
+		minutiTrascorsi.put(Lang.IT, RED + "Sono passati " + var.getInterval()
 				+ itMinuti_o_secondi);
 		minutiTrascorsi.put(Lang.EN, RED + "" + var.getInterval()
 				+ enMinuti_o_secondi + " have passed.");
@@ -74,18 +71,10 @@ public class Languages {
 		int string = 0;
 		switch (lang) {
 		case IT:
-			if (part == 1) {
-				string = 0;
-			} else {
-				string = 1;
-			}
+			string = (part == 1) ? 0 : 1;
 			break;
 		case EN:
-			if (part == 1) {
-				string = 2;
-			} else {
-				string = 3;
-			}
+			string = (part == 1) ? 2 : 3;
 			break;
 		}
 		return stringCount[string];
@@ -99,15 +88,7 @@ public class Languages {
 						+ "Sorry "
 						+ p.getName()
 						+ ", you don't have enough permission to perform this command." };
-		int a = 0;
-		switch (lang) {
-		case IT:
-			a = 0;
-			break;
-		case EN:
-			a = 1;
-			break;
-		}
+		int a = (lang == Lang.IT) ? 0 : 1;
 		return array[a];
 	}
 }

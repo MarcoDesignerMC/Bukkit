@@ -5,11 +5,11 @@ import me.timer.bukkit.Options.Languages.Lang;
 
 public class GlobalVariables {
 
-	private Lang Language = Lang.EN;
+	public static Lang Language = Lang.EN;
 	MainClass main;
 	private String durationTime, Announcements;
 	int num, interval, numAnn, divisore;
-	boolean secondi;
+	public static boolean secondi;
 
 	public GlobalVariables(MainClass plugin) {
 		main = plugin;
@@ -20,18 +20,10 @@ public class GlobalVariables {
 
 	}
 
-	public Lang getLanguage() {
-		return Language;
-	}
-
-	public void setLanguage(Lang language) {
-		Language = language;
-	}
-
 	/**************************************** OPTIONS CONFIGURATIONS **************************************************/
-	public boolean isSecondi() {
+	/*public boolean isSecondi() {
 		return secondi;
-	}
+	}*/
 
 	public int getNum() {
 
@@ -39,17 +31,23 @@ public class GlobalVariables {
 			String[] parts = durationTime.split("m");
 			if (Integer.parseInt(parts[0]) >= 10)
 				num = Integer.parseInt(parts[0]) * 60;
-			else
+			else {
 				main.log.warning("Total time in config.yml is invalid.");
-
+				main.getPluginLoader().disablePlugin(main);
+			}
 		} else if (durationTime.contains("h")) {
 			String[] parts = durationTime.split("h");
 			if (Integer.parseInt(parts[0]) <= 12)
 				num = Integer.parseInt(parts[0]) * 60 * 60;
-			else
+			else {
 				main.log.warning("Total time in config.yml is invalid.");
+				main.getPluginLoader().disablePlugin(main);
+
+			}
 		} else {
 			main.log.warning("Total time in config.yml is invalid.");
+			main.getPluginLoader().disablePlugin(main);
+
 		}
 
 		return num;
@@ -57,12 +55,12 @@ public class GlobalVariables {
 
 	public int getInterval() {
 
-		divisore = (durationTime.contains("h")) ? 60 : 1;
+		divisore = (getNum() / numAnn < 1) ? 60 : 1;
 		interval = (getNum() / numAnn) / divisore;
 
 		secondi = (divisore == 60) ? false : true;
 
-		return interval;
+		return Math.round(interval * 10) / 10;
 	}
 
 	public int getIntervalInSeconds() {

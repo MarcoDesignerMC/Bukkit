@@ -1,9 +1,6 @@
 package me.timer.bukkit.Options;
 
-import static org.bukkit.ChatColor.BOLD;
-import static org.bukkit.ChatColor.ITALIC;
-import static org.bukkit.ChatColor.RED;
-import static org.bukkit.ChatColor.YELLOW;
+import static org.bukkit.ChatColor.*;
 
 import java.util.HashMap;
 
@@ -24,11 +21,16 @@ public class Languages {
 	 * 
 	 * VARIABLES
 	 */
-	public  HashMap<Lang, Object> inizio = new HashMap<Lang, Object>();
-	public  HashMap<Lang, Object> minutiTrascorsi = new HashMap<Lang, Object>();
-	public  HashMap<Lang, Object> fra10secondi = new HashMap<Lang, Object>();
-	public  HashMap<Lang, Object> teletrasporto = new HashMap<Lang, Object>();
-	public  HashMap<Lang, Object> fermata = new HashMap<Lang, Object>();
+	public HashMap<Lang, Object> inizio = new HashMap<Lang, Object>();
+	public HashMap<Lang, Object> minutiTrascorsi = new HashMap<Lang, Object>();
+	public HashMap<Lang, Object> fra10secondi = new HashMap<Lang, Object>();
+	public HashMap<Lang, Object> teletrasporto = new HashMap<Lang, Object>();
+	public HashMap<Lang, Object> fermata = new HashMap<Lang, Object>();
+	public HashMap<Lang, Object> uccisione = new HashMap<Lang, Object>();
+	public HashMap<Lang, Object> mela = new HashMap<Lang, Object>();
+	public HashMap<Lang, Object> UHCfinita = new HashMap<Lang, Object>();
+	public HashMap<Lang, Object> UHCstarting = new HashMap<Lang, Object>();
+	public HashMap<Lang, Object> UHCinGame = new HashMap<Lang, Object>();
 
 	public Languages(MainClass plugin) {
 		main = plugin;
@@ -58,6 +60,22 @@ public class Languages {
 				(RED + (BOLD + "Teletrasporto in corso, preparati a morire.")));
 		teletrasporto.put(Lang.EN,
 				(RED + (BOLD + "Teleport in progress, get ready to die.")));
+		uccisione.put(Lang.IT, RED + " è stato ucciso da ");
+		uccisione.put(Lang.EN, RED + " has been killed by ");
+		mela.put(Lang.IT, YELLOW + (ITALIC + "Hai guadagnato una mela."));
+		mela.put(Lang.EN, YELLOW + (ITALIC + "You earned an apple."));
+		UHCfinita.put(Lang.IT,
+				(RED + (BOLD + "La UHC è terminata. Il vincitore è ")));
+		UHCfinita.put(Lang.EN, (RED + (BOLD + "UHC is ended. The winner is ")));
+
+		UHCinGame.put(Lang.IT, RED + "La UHC è in corso. Non puoi entrare.");
+		UHCinGame.put(Lang.EN, RED + "UHC is in progress. You can't join.");
+
+		UHCstarting.put(Lang.IT, GREEN
+				+ (ITALIC + "La UHC non è ancora iniziata, puoi entrare."));
+		UHCstarting.put(Lang.EN, GREEN
+				+ (ITALIC + "UHC isn't started yet, you can join."));
+
 	}
 
 	public Object getStrings(Lang lang, HashMap<Lang, Object> hashmap) {

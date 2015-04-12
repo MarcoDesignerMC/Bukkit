@@ -5,6 +5,7 @@ import static org.bukkit.ChatColor.*;
 import java.util.logging.Logger;
 
 import me.timer.bukkit.Commands.TimerCommand;
+import me.timer.bukkit.Listener.MainListener;
 import me.timer.bukkit.Options.Languages;
 import me.timer.bukkit.Runnables.CountDown;
 import me.timer.bukkit.Runnables.Start;
@@ -37,6 +38,7 @@ public class MainClass extends JavaPlugin {
 		saveConfig();
 
 		this.getCommand("timer").setExecutor(new TimerCommand(this));
+		getServer().getPluginManager().registerEvents(new MainListener(this), this);
 
 		var = new GlobalVariables(this);
 		str = new Languages(this);

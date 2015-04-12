@@ -2,6 +2,7 @@ package me.timer.bukkit.Runnables;
 
 import static org.bukkit.ChatColor.*;
 import me.timer.bukkit.MainClass;
+import me.timer.bukkit.Listener.MainListener;
 import me.timer.bukkit.Options.Languages;
 import me.timer.bukkit.Util.GlobalVariables;
 import me.timer.bukkit.Util.Util;
@@ -18,11 +19,13 @@ public class CountDown extends BukkitRunnable {
 	GlobalVariables var;
 	Languages str;
 	Start start;
+	MainListener listener;
 
 	public CountDown(MainClass plugin) {
 		this.plugin = plugin;
 		var = new GlobalVariables(plugin);
 		str = new Languages(plugin);
+		listener = new MainListener(plugin);
 	}
 
 	@Override
@@ -31,14 +34,16 @@ public class CountDown extends BukkitRunnable {
 			if (count % 5 == 0 && count > 0) {
 
 				Bukkit.broadcastMessage(plugin.prefisso + ""
-						+ str.getStringCountdown(1, GlobalVariables.Language) + YELLOW
-						+ count + str.getStringCountdown(2, GlobalVariables.Language));
+						+ str.getStringCountdown(1, GlobalVariables.Language)
+						+ YELLOW + count
+						+ str.getStringCountdown(2, GlobalVariables.Language));
 			}
 			if (count <= 3) {
 				Bukkit.broadcastMessage(plugin.prefisso
 						+ str.getStringCountdown(1, GlobalVariables.Language)
 								.toString()
-						+ BOLD + count
+						+ BOLD
+						+ count
 						+ str.getStringCountdown(2, GlobalVariables.Language)
 								.toString());
 
@@ -46,11 +51,25 @@ public class CountDown extends BukkitRunnable {
 			}
 
 		} else {
-			Bukkit.broadcastMessage(plugin.prefisso + ""
-					+ str.getStrings(GlobalVariables.Language, str.teletrasporto));
+			Bukkit.broadcastMessage(plugin.prefisso
+					+ ""
+					+ str.getStrings(GlobalVariables.Language,
+							str.teletrasporto));
 			Util.playSound(Sound.BLAZE_DEATH, 1, 0);
 			start = new Start(plugin);
 			start.setCounter(0);
+
+			if (Bukkit.getOnlinePlayers().size() == 1) {
+				MainListener.inGame = false;
+				MainListener.end = true;
+				MainListener.starting = false;
+				/*
+				 * for (int i = 0; i < listener.bannedIPs.getItemCount(); i++) {
+				 * Bukkit.unbanIP(listener.bannedIPs.getItem(i));
+				 * Bukkit.broadcastMessage(str.getStrings(
+				 * GlobalVariables.Language, str.UHCfinita).toString()); }
+				 */
+			}
 			this.cancel();
 
 		}

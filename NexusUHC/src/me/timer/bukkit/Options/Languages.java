@@ -31,6 +31,10 @@ public class Languages {
 	public HashMap<Lang, Object> UHCfinita = new HashMap<Lang, Object>();
 	public HashMap<Lang, Object> UHCstarting = new HashMap<Lang, Object>();
 	public HashMap<Lang, Object> UHCinGame = new HashMap<Lang, Object>();
+	public HashMap<Lang, Object> entrato = new HashMap<Lang, Object>();
+	public HashMap<Lang, Object> uscito = new HashMap<Lang, Object>();
+	public HashMap<Lang, Object> giocatoriRimasti = new HashMap<Lang, Object>();
+
 
 	public Languages(MainClass plugin) {
 		main = plugin;
@@ -75,6 +79,15 @@ public class Languages {
 				+ (ITALIC + "La UHC non è ancora iniziata, puoi entrare."));
 		UHCstarting.put(Lang.EN, GREEN
 				+ (ITALIC + "UHC isn't started yet, you can join."));
+
+		entrato.put(Lang.IT, YELLOW + " è entrato in partita.");
+		entrato.put(Lang.EN, YELLOW  + " has joined the game.");
+	
+		uscito.put(Lang.IT, " è uscito dalla partita.");
+		uscito.put(Lang.EN, " has left the game.");
+		
+		giocatoriRimasti.put(Lang.IT,  " giocatori rimasti.");
+		giocatoriRimasti.put(Lang.EN, " remaining players.");
 
 	}
 

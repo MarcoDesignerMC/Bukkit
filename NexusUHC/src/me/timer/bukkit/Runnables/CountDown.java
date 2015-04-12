@@ -1,6 +1,7 @@
 package me.timer.bukkit.Runnables;
 
-import static org.bukkit.ChatColor.*;
+import static org.bukkit.ChatColor.BOLD;
+import static org.bukkit.ChatColor.YELLOW;
 import me.timer.bukkit.MainClass;
 import me.timer.bukkit.Listener.MainListener;
 import me.timer.bukkit.Options.Languages;
@@ -20,6 +21,8 @@ public class CountDown extends BukkitRunnable {
 	Languages str;
 	Start start;
 	MainListener listener;
+
+	// MainListener listener;
 
 	public CountDown(MainClass plugin) {
 		this.plugin = plugin;
@@ -58,18 +61,16 @@ public class CountDown extends BukkitRunnable {
 			Util.playSound(Sound.BLAZE_DEATH, 1, 0);
 			start = new Start(plugin);
 			start.setCounter(0);
-
-			if (Bukkit.getOnlinePlayers().size() == 1) {
-				MainListener.inGame = false;
-				MainListener.end = true;
-				MainListener.starting = false;
-				/*
-				 * for (int i = 0; i < listener.bannedIPs.getItemCount(); i++) {
-				 * Bukkit.unbanIP(listener.bannedIPs.getItem(i));
-				 * Bukkit.broadcastMessage(str.getStrings(
-				 * GlobalVariables.Language, str.UHCfinita).toString()); }
-				 */
-			}
+			/*
+			 * if (Bukkit.getOnlinePlayers().size() == 1) { MainListener.inGame
+			 * = false; MainListener.end = true; MainListener.starting = false;
+			 * 
+			 * Bukkit.broadcastMessage(plugin.prefisso +
+			 * str.getStrings(GlobalVariables.Language,
+			 * str.UHCfinita).toString() + MainListener.winner); for (int i = 0;
+			 * i < listener.bannedIPs.getItemCount(); i++) {
+			 * Bukkit.unbanIP(listener.bannedIPs.getItem(i)); } }
+			 */
 			this.cancel();
 
 		}

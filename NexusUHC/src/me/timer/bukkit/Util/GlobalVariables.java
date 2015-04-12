@@ -21,21 +21,18 @@ public class GlobalVariables {
 	}
 
 	/**************************************** OPTIONS CONFIGURATIONS **************************************************/
-	/*
-	 * public boolean isSecondi() { return secondi; }
-	 */
 
 	public int getNum() {
 
 		if (durationTime.contains("m")) {
 			String[] parts = durationTime.split("m");
-			// TODO: cancella
-			// if (Integer.parseInt(parts[0]) >= 10)
-			num = Integer.parseInt(parts[0]) * 60;
-			// else {
-			// main.log.warning("Total time in config.yml is invalid.");
-			// main.getPluginLoader().disablePlugin(main);
-			// }
+
+			if (Integer.parseInt(parts[0]) >= 10)
+				num = Integer.parseInt(parts[0]) * 60;
+			else {
+				main.log.warning("Total time in config.yml is invalid.");
+				main.getPluginLoader().disablePlugin(main);
+			}
 
 		} else if (durationTime.contains("h")) {
 			String[] parts = durationTime.split("h");

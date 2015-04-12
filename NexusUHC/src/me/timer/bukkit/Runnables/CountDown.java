@@ -37,40 +37,25 @@ public class CountDown extends BukkitRunnable {
 			if (count % 5 == 0 && count > 0) {
 
 				Bukkit.broadcastMessage(plugin.prefisso + ""
-						+ str.getStringCountdown(1, GlobalVariables.Language)
-						+ YELLOW + count
-						+ str.getStringCountdown(2, GlobalVariables.Language));
+						+ str.getStringCountdown(1, var.getLang()) + YELLOW
+						+ count + str.getStringCountdown(2, var.getLang()));
 			}
 			if (count <= 3) {
 				Bukkit.broadcastMessage(plugin.prefisso
-						+ str.getStringCountdown(1, GlobalVariables.Language)
-								.toString()
-						+ BOLD
-						+ count
-						+ str.getStringCountdown(2, GlobalVariables.Language)
-								.toString());
+						+ str.getStringCountdown(1, var.getLang()).toString()
+						+ BOLD + count
+						+ str.getStringCountdown(2, var.getLang()).toString());
 
 				Util.playSound(Sound.NOTE_PLING, 0.6f, 2);
 			}
 
 		} else {
-			Bukkit.broadcastMessage(plugin.prefisso
-					+ ""
-					+ str.getStrings(GlobalVariables.Language,
-							str.teletrasporto));
+			Bukkit.broadcastMessage(plugin.prefisso + ""
+					+ str.getStrings(var.getLang(), str.teletrasporto));
 			Util.playSound(Sound.BLAZE_DEATH, 1, 0);
 			start = new Start(plugin);
 			start.setCounter(0);
-			/*
-			 * if (Bukkit.getOnlinePlayers().size() == 1) { MainListener.inGame
-			 * = false; MainListener.end = true; MainListener.starting = false;
-			 * 
-			 * Bukkit.broadcastMessage(plugin.prefisso +
-			 * str.getStrings(GlobalVariables.Language,
-			 * str.UHCfinita).toString() + MainListener.winner); for (int i = 0;
-			 * i < listener.bannedIPs.getItemCount(); i++) {
-			 * Bukkit.unbanIP(listener.bannedIPs.getItem(i)); } }
-			 */
+
 			this.cancel();
 
 		}

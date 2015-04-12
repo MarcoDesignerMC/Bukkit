@@ -28,25 +28,26 @@ public class Start extends BukkitRunnable {
 	public void run() {
 		if (counter < var.getNumAnn() && counter > 0) {
 			Bukkit.broadcastMessage(plugin.prefisso + ""
-					+ str.getStrings(GlobalVariables.Language, str.minutiTrascorsi));
+					+ str.getStrings(var.getLang(), str.minutiTrascorsi));
 			Util.playSound(Sound.NOTE_PLING, 0.6f, 2);
 
 		} else if (counter >= var.getNumAnn()) {
 			Bukkit.broadcastMessage(plugin.prefisso + ""
-					+ str.getStrings(GlobalVariables.Language, str.fra10secondi));
+					+ str.getStrings(var.getLang(), str.fra10secondi));
 			Util.playSound(Sound.AMBIENCE_THUNDER, 1, 0);
 			if (counter >= var.getNumAnn())
 				cd = new CountDown(plugin);
-				cd.runTaskTimer(plugin, 0, 20L);
+			cd.runTaskTimer(plugin, 0, 20L);
 			this.cancel();
 		}
+
 		counter++;
 	}
 
 	public int getCounter() {
 		return counter;
 	}
-	
+
 	public void setCounter(int counter) {
 		this.counter = counter;
 	}

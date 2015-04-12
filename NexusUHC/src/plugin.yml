@@ -1,5 +1,5 @@
 name: NexusUHC
-version: 2.0
+version: 2.5
 author: MarcoDesignerMC
 main: me.timer.bukkit.MainClass
 commands:
